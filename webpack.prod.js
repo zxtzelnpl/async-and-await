@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    mode:'development',
+    mode: 'production',
     entry:'./app/main.js',
     output:{
         path: path.resolve(__dirname, 'dist'),
@@ -21,11 +21,5 @@ module.exports = {
             filename: 'index.html',
             template: `${__dirname}/app/index.tmpl.html`
         }),
-    ],
-    devtool: '#source-map',
-    devServer: {
-        contentBase: './dist',
-        historyApiFallback: false,
-        overlay: true,
-    },
+    ]
 }

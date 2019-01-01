@@ -1,5 +1,7 @@
 const Koa = require('koa');
 const cors = require('koa2-cors');
+const static = require('koa-static');
+const path = require('path');
 const app = new Koa();
 
 const router = require('./router');
@@ -36,8 +38,6 @@ app.use(async (ctx, next) => {
   }))
   .use(router.routes())
   .use(router.allowedMethods())
-  .use(ctx => {
-    ctx.body = 'Hello World';
-  });
+  .use(static(path.join(__dirname,'../dist')));
 
   app.listen(3000);

@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --open",
+    "build": "webpack --config webpack.prod.js",
     "server": "node ./server/index.js"
   },
   "author": "",
@@ -12,6 +13,7 @@
   "dependencies": {
     "koa": "^2.6.2",
     "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
     "koa2-cors": "^2.0.6",
     "lodash": "^4.17.11"
   },

@@ -3,6 +3,9 @@ const {waiting} = require('./utils');
 
 const router = new Router();
 
+router.get('/',ctx=>{
+    
+})
 
 router.get('/query/:letter/:number',async ctx=>{
     const {letter,number} = ctx.params;
