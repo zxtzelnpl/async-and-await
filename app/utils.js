@@ -59,24 +59,29 @@ export function resolveP(){
 export function CountTime(){
     return {
         beginTime:null,
-        endTime:null,
-        deltaTime:null,
         begin:function(){
             this.beginTime = new Date();
         },
-        end:function(){
-            this.endTime = new Date();
-            this.deltaTime = (this.endTime - this.beginTime);
-            chalk([
+        end:function(mark){
+            let endTime = new Date();
+            let deltaTime = (endTime - this.beginTime);
+            let contents = [
                 {
                     text:'使用时间：',
                     style:'color:blue;font-weight:bold;'
                 },
                 {
-                    text:`${this.deltaTime}ms`,
+                    text:`${deltaTime}ms`,
                     style:'color:red;'
                 }
-            ])
+            ];
+            if(mark){
+                contents.unshift({
+                    text:`(${mark})`,
+                    style:'color:blue;'
+                })
+            }
+            chalk(contents)
         },
     }
 }

@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --open",
+    "dev": "webpack-dev-server --open",
     "build": "webpack --config webpack.prod.js",
     "server": "node ./server/index.js"
   },

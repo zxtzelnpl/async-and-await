@@ -4,17 +4,14 @@
 
 import {get,CountTime} from '../utils';
 
-export default async function demo4(){
+export default async function demo5(){
     console.log('demo4');
     let countTime = CountTime();
     countTime.begin();
-    const a =await get('a',1000);
-    const b =await get('b',1000);
-    const a_json = await a.json();
-    const b_json = await b.json();
-    console.log(a)
-    console.log(a_json)
-    console.log(b)
-    console.log(b_json)
-    countTime.end();
+    const responseA =get('a',2000).then(res=>res.json());
+    const responseB =get('b',1000).then(res=>res.json());
+    const jsonA = await responseA;
+    countTime.end(jsonA.letter);
+    const jsonB = await responseB;
+    countTime.end(jsonB.letter);
 }
