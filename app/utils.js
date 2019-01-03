@@ -68,11 +68,11 @@ export function CountTime(){
             let contents = [
                 {
                     text:'使用时间：',
-                    style:'color:blue;font-weight:bold;'
+                    style:'color:blue;'
                 },
                 {
                     text:`${deltaTime}ms`,
-                    style:'color:red;'
+                    style:'color:green;font-weight:bold;'
                 }
             ];
             if(mark){

@@ -1,11 +1,11 @@
 // 请求a和b
 // 如果a先返回则显示a。
-// 如果b先返回则等待，a返回后显示a,在显示b。
+// 如果b先返回则等待，a返回后显示a,再显示b。
 
 import {get,CountTime} from '../utils';
 
 export default function demo51(){
-    console.log('demo5');
+    console.log('demo5-1');
     let countTime = CountTime();
     countTime.begin();
 
@@ -20,11 +20,16 @@ export default function demo51(){
         }
     }
 
-    get('a',1000)
+    get('a',3000)
     .then(res=>res.json())
     .then(json=>{
         callbacks.array[0] = json.letter;
         countTime.end('received a')
+        callbacks.fire();
+    })
+    .catch(error=>{
+        callbacks.array[0] = 'requset a occur error';
+        countTime.end('error a');
         callbacks.fire();
     })
     ;
@@ -33,6 +38,11 @@ export default function demo51(){
     .then(json=>{
         callbacks.array[1] = json.letter;
         countTime.end('received b')
+        callbacks.fire();
+    })
+    .catch(error=>{
+        callbacks.array[1] = 'requset b occur error';
+        countTime.end('error b');
         callbacks.fire();
     })
     ;

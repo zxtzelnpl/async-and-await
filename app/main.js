@@ -2,7 +2,7 @@ import {
     chalk
 } from './utils';
 import _ from 'lodash';
-import demo0 from './demos/demo0';
+import demo0 from './demos/demo0.1';
 import demo11 from './demos/demo1.1';
 import demo12 from './demos/demo1.2';
 import demo13 from './demos/demo1.3';
@@ -23,16 +23,26 @@ import demo41 from './demos/demo4.1';
 import demo42 from './demos/demo4.2';
 import demo43 from './demos/demo4.3';
 
-import demo5 from './demos/demo5';
 import demo51 from './demos/demo5.1';
+import demo52 from './demos/demo5.2';
+import demo53 from './demos/demo5.3';
+
+import demo61 from './demos/demo6.1';
+import demo62 from './demos/demo6.2';
+import demo63 from './demos/demo6.3';
+
+import demo71 from './demos/demo7.1';
+
+import demo81 from './demos/demo8.2';
+import demo82 from './demos/demo8.1';
 
 chalk([{
         text: '文件地址:',
-        style: 'color:blue;font-weight:bold'
+        style: 'color:blue;'
     },
     {
         text: '/app/main.js',
-        style: 'color:red'
+        style: 'color:blue;font-weight:bold'
     }
 ])
 
@@ -62,8 +72,18 @@ function component() {
         `<button id="${demo42.name}">demo4-2</button>`,
         `<button id="${demo43.name}">demo4-3</button>`,
         '<hr />',
-        `<button id="${demo5.name}">demo5</button>`,
         `<button id="${demo51.name}">demo5-1</button>`,
+        `<button id="${demo52.name}">demo5-2</button>`,
+        `<button id="${demo53.name}">demo5-3</button>`,
+        '<hr />',
+        `<button id="${demo61.name}">demo6-1</button>`,
+        `<button id="${demo62.name}">demo6-2</button>`,
+        `<button id="${demo63.name}">demo6-3</button>`,
+        '<hr />',
+        `<button id="${demo71.name}">demo7-1</button>`,
+        '<hr />',
+        `<button id="${demo81.name}">demo8-1</button>`,
+        `<button id="${demo82.name}">demo8-2</button>`,
     ], '<br>');
 
     return element;
@@ -126,11 +146,32 @@ document.getElementById('app').addEventListener('click', function (e) {
         case demo43.name:
             demo43();
             break;
-        case demo5.name:
-            demo5();
-            break;
         case demo51.name:
             demo51();
+            break;
+        case demo52.name:
+            demo52();
+            break;
+        case demo53.name:
+            demo53();
+            break;
+        case demo61.name:
+            demo61();
+            break;
+        case demo62.name:
+            demo62();
+            break;
+        case demo63.name:
+            demo63();
+            break;
+        case demo71.name:
+            demo71();
+            break;
+        case demo81.name:
+            demo81();
+            break;
+        case demo82.name:
+            demo82();
             break;
         default:
             return;
