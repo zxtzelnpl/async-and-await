@@ -2,7 +2,7 @@ import {
     chalk
 } from './utils';
 import _ from 'lodash';
-import demo0 from './demos/demo0.1';
+import demo from './demos/demo';
 import demo11 from './demos/demo1.1';
 import demo12 from './demos/demo1.2';
 import demo13 from './demos/demo1.3';
@@ -51,7 +51,7 @@ function component() {
 
     // Lodash, currently included via a script, is required for this line to work
     element.innerHTML = _.join([
-        `<button id="${demo0.name}">demo0</button>`,
+        `<button id="${demo.name}">demo</button>`,
         `<button id="${demo11.name}">demo1-1</button>`,
         `<button id="${demo12.name}">demo1-2</button>`,
         `<button id="${demo13.name}">demo1-3</button>`,
@@ -95,8 +95,8 @@ document.getElementById('app').appendChild(component());
 document.getElementById('app').addEventListener('click', function (e) {
     const id = e.target.id;
     switch (id) {
-        case demo0.name:
-            demo0();
+        case demo.name:
+            demo();
             break;
         case demo11.name:
             demo11();
