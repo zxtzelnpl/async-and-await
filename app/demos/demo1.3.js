@@ -6,19 +6,15 @@ export default async function demo13(){
     const countTime = CountTime();
     countTime.begin();
     const responseA =  await get('a',1000);
-    const jsonA = await responseA.json();
-    if(jsonA.letter!=='a'){return}
+    if(responseA.letter!=='a'){return}
 
     const responseB =  await get('b',1000);
-    const jsonB = await responseB.json();
-    if(jsonB.letter!=='b'){return}
+    if(responseB.letter!=='b'){return}
 
     const responseC =  await get('c',1000);
-    const jsonC = await responseC.json();
-    if(jsonC.letter!=='c'){return}
+    if(responseC.letter!=='c'){return}
 
     const responseD =  await get('d',1000);
-    const jsonD = await responseD.json();
-    console.log(jsonD.letter);
+    console.log(responseD.letter);
     countTime.end();
 }

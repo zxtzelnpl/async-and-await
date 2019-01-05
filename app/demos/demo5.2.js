@@ -8,8 +8,8 @@ export default async function demo52(){
     console.log('demo5-2');
     let countTime = CountTime();
     countTime.begin();
-    const responseA =get('a',2000).then(res=>res.json());
-    const responseB =get('b',1000).then(res=>res.json());
+    const responseA =get('a',2000);
+    const responseB =get('b',1000);
     const jsonA = await responseA;
     countTime.end(jsonA.letter);
     const jsonB = await responseB;

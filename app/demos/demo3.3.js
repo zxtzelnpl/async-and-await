@@ -11,16 +11,13 @@ export default async function demo33(){
     const getC = get('c',1000);
     
     const responseA = await getA;
-    const jsonA = await responseA.json();
-    console.log(jsonA);
+    console.log(responseA);
 
     const responseB = await getB;
-    const jsonB = await responseB.json();
-    console.log(jsonB);
+    console.log(responseB);
 
     const responseC = await getC;
-    const jsonC = await responseC.json();
-    console.log(jsonC);
+    console.log(responseC);
 
     countTime.end();
 }

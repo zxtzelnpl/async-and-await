@@ -5,20 +5,16 @@ import { get, CountTime } from '../utils';
 
 async function getOne(){
     const reponseA = await get('a', 1000);
-    const jsonA = await reponseA.json();
-    const stringB = jsonA.letter + 'b';
+    const stringB = reponseA.letter + 'b';
     const reponseB = await get(stringB, 1000);
-    const jsonB = await reponseB.json();
-    return jsonB.letter;
+    return reponseB.letter;
 }
 
 async function getTwo(){
     const reponseC = await get('c', 1000);
-    const jsonC = await reponseC.json();
-    const stringD = jsonC.letter + 'd';
+    const stringD = reponseC.letter + 'd';
     const reponseD = await get(stringD, 1000);
-    const jsonD = await reponseD.json();
-    return jsonD.letter;
+    return reponseD.letter;
 }
 
 export default async function demo63() {

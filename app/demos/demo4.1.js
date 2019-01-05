@@ -7,20 +7,17 @@ export default function demo41(){
     let markA;
 
     get('a',1000)
-    .then(res=>res.json())
     .then(json=>{
         markA = json.letter;
         let stringB = markA+'b';
         return get(stringB,1000);
     })
-    .then(res=>res.json())
     .then(json=>{
         let markB =json.letter;
 
         let string = markA+markB;
         return get(string,1000);
     })
-    .then(res=>res.json())
     .then(json=>{
         console.log(json)
     });

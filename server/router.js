@@ -3,10 +3,6 @@ const {waiting} = require('./utils');
 
 const router = new Router();
 
-router.get('/',ctx=>{
-    
-})
-
 router.get('/query/:letter/:number',async ctx=>{
     const {letter,number} = ctx.params;
     const time = Number(number);
@@ -16,6 +12,12 @@ router.get('/query/:letter/:number',async ctx=>{
     ctx.body = {
         letter:letter
     }
+});
+
+router.get('/error/500',async ctx=>{
+    await waiting(1000);
+
+    ctx.throw(500);
 })
 
 module.exports = router;

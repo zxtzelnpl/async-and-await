@@ -13,6 +13,7 @@ import demo23 from './demos/demo2.3';
 import demo24 from './demos/demo2.4';
 import demo25 from './demos/demo2.5';
 import demo26 from './demos/demo2.6';
+import demo27 from './demos/demo2.7';
 
 import demo31 from './demos/demo3.1';
 import demo32 from './demos/demo3.2';
@@ -62,6 +63,7 @@ function component() {
         `<button id="${demo24.name}">demo2-4</button>`,
         `<button id="${demo25.name}">demo2-5</button>`,
         `<button id="${demo26.name}">demo2-6</button>`,
+        `<button id="${demo27.name}">demo2-7</button>`,
         '<hr />',
         `<button id="${demo31.name}">demo3-1</button>`,
         `<button id="${demo32.name}">demo3-2</button>`,
@@ -124,6 +126,9 @@ document.getElementById('app').addEventListener('click', function (e) {
             break;
         case demo26.name:
             demo26();
+            break;
+        case demo27.name:
+            demo27();
             break;
         case demo31.name:
             demo31();

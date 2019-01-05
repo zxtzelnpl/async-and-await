@@ -3,14 +3,11 @@ import {get} from '../utils';
 
 export default async function demo32(){
     const responseA = await get('a',1000);
-    const jsonA = await responseA.json();
-    console.log(jsonA);
+    console.log(responseA);
 
     const responseB = await get('b',1000);
-    const jsonB = await responseB.json();
-    console.log(jsonB);
+    console.log(responseB);
 
     const responseC = await get('c',1000);
-    const jsonC = await responseC.json();
-    console.log(jsonC);
+    console.log(responseC);
 }

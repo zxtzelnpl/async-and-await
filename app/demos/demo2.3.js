@@ -1,4 +1,9 @@
-import {get,CountTime,chalk} from '../utils';
+import {get,noFunction,errorThen,error404,error500,CountTime,chalk} from '../utils';
+
+// 1. 在async function中抛出错误。 ---> 可以捕获到位置
+// 2. 在外链同步中抛出错误。---> 可以捕获到位置
+// 3. 在外链异步中抛出错误。---> 可以捕获到位置
+// 4. 抛出404或500错误。 ---> 无法捕获404和500错误
 
 export default async function demo23(){
     console.log('demo2-3');
@@ -6,24 +11,20 @@ export default async function demo23(){
     try{
         const countTime = CountTime();
         countTime.begin();
-        const responseA =  await get('a',1000);
-        const jsonA = await responseA.json();
-        if(jsonA.letter!=='a'){return}
+        const responseA =  await error500('a',1000);
+        if(responseA.letter!=='a'){return}
     
-        throw new Error('I make an error');
-
         const responseB =  await get('b',1000);
-        const jsonB = await responseB.json();
-        if(jsonB.letter!=='b'){return}
+        if(responseB.letter!=='b'){return}
     
         const responseC =  await get('c',1000);
-        const jsonC = await responseC.json();
-        if(jsonC.letter!=='c'){return}
+        if(responseC.letter!=='c'){return}
     
         const responseD =  await get('d',1000);
-        const jsonD = await responseD.json();
-        console.log(jsonD.letter);
+        console.log(responseD.letter);
         countTime.end();
+
+        throw new Error('I make an error');
     }
     catch(error){
         chalk({

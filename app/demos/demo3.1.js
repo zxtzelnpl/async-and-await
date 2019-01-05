@@ -6,21 +6,18 @@ export default function demo31(){
 
     countTime.begin();
     get('a',1000)
-    .then(res=>res.json())
     .then(json=>{
         console.log(json);
         countTime.end('a');
     });
 
     get('b',1000)
-    .then(res=>res.json())
     .then(json=>{
         console.log(json);
         countTime.end('b');
     });
 
     get('c',1000)
-    .then(res=>res.json())
     .then(json=>{
         console.log(json);
         countTime.end('c');

@@ -9,7 +9,6 @@ export default function demo61() {
     countTime.begin();
 
     get('a', 1000)
-        .then(res => res.json())
         .then(json => {
             let stringB = json.letter + 'b';
             return get(stringB, 1000)
@@ -20,7 +19,6 @@ export default function demo61() {
         });
 
     get('c', 1000)
-        .then(res => res.json())
         .then(json => {
             let stringD = json.letter + 'd';
             return get(stringD, 1000)

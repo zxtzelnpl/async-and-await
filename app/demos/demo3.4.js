@@ -6,14 +6,12 @@ export default async function demo34(){
     let countTime = CountTime();
 
     countTime.begin();
-    const responses = await Promise.all([
+    const jsons = await Promise.all([
         get('a',1000),
         get('b',1000),
         get('c',1000)
     ]);
 
-    const jsons = await Promise.all(responses.map(response=>response.json()));
-    
     console.log(jsons)
 
     countTime.end();

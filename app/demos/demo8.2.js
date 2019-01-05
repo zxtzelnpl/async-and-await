@@ -1,5 +1,9 @@
 // fetch abort 方法。
-import { get, CountTime,chalk } from '../utils';
+import {
+    get,
+    CountTime,
+    chalk
+} from '../utils';
 
 const _fetch = (function (get) {
     return function (url, time) {
@@ -9,7 +13,7 @@ const _fetch = (function (get) {
                 reject('abort.');
                 chalk({
                     text: 'abort done.',
-                    style:'color:skyblue;'
+                    style: 'color:skyblue;'
                 });
             };
         });
@@ -22,14 +26,16 @@ const _fetch = (function (get) {
     };
 })(get);
 
-export default function demo82(){
+export default function demo82() {
     console.log('demo8-2');
 
-    let p = _fetch('a',3000);
-    p.then(function (res) {
-        console.log('response:', res);
-    }, function (e) {
-        console.log('error:', e);
-    });
+    let p = _fetch('a', 3000);
+    p
+        .then(function (res) {
+            console.log('response:', res);
+        })
+        .catch(function (e) {
+            console.log('error:', e);
+        });
     p.abort();
 }

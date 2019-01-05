@@ -5,19 +5,15 @@ export default function demo11(){
     const countTime = CountTime();
     countTime.begin();
     get('a',1000)
-    .then(res=>res.json())
     .then(json=>{
         if(json.letter==='a'){
             get('b',1000)
-            .then(res=>res.json())
             .then(json=>{
                 if(json.letter==='b'){
                     get('c',1000)
-                    .then(res=>res.json())
                     .then(json=>{
                         if(json.letter==='c'){
                             get('d',1000)
-                            .then(res=>res.json())
                             .then(json=>{
                                 console.log(json);
                                 countTime.end();

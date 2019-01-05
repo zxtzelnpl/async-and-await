@@ -9,16 +9,12 @@ export default async function demo62() {
     countTime.begin();
 
     const reponseA = await get('a',1000);
-    const jsonA = await reponseA.json();
-    const stringB = jsonA.letter + 'b';
+    const stringB = reponseA.letter + 'b';
     const reponseB = await get(stringB,1000);
-    const jsonB = await reponseB.json();
-    countTime.end(jsonB.letter);
+    countTime.end(reponseB.letter);
 
     const reponseC = await get('c', 1000);
-    const jsonC = await reponseC.json();
-    const stringD = jsonC.letter + 'd';
+    const stringD = reponseC.letter + 'd';
     const reponseD = await get(stringD, 1000);
-    const jsonD = await reponseD.json();
-    countTime.end(jsonD.letter);
+    countTime.end(reponseD.letter);
 }
