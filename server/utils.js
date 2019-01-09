@@ -5,3 +5,9 @@ exports.waiting = function (time) {
         }, time)
     })
 }
+
+exports.getMode = function(args){
+    let index = args.indexOf('--mode');
+    let mode = args[index+1]||'development';
+    return mode;
+}
