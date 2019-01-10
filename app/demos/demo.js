@@ -27,16 +27,22 @@ class Storage{
 
 // 定义个Promise对象
 const longTimPromise = function(){
+
+    console.log('longTimePromise begin');
     return new Promise((resolve,reject)=>{
+        console.log('before setTimeout');
         setTimeout(()=>{
+            console.log('before resolve');
             resolve('abc');
-        },2000);
-    })
+        },1000);
+    });
 };
 
 export default async function demo(){
     console.log('demo');
 
+    console.log('before await');
     let res = await longTimPromise();
+    console.log('after await');
     console.log(res);
 }

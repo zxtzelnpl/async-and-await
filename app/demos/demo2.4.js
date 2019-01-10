@@ -1,6 +1,6 @@
 import {get,CountTime, chalk, rejectP} from '../utils';
 
-// 调试出现的函数名不准确
+// 调试出现的函数名不准确 Object.then.then.error
 
 export default function demo24(){
     console.log('demo2-4');

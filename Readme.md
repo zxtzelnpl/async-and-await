@@ -11,10 +11,14 @@
     2. [从JS引擎理解Await 与.then()的堆栈处理（译文）](https://zhuanlan.zhihu.com/p/40072557)
 5. TS，babel都可以编译。
 
-## 3. 劣势
+## 3. 问题
 1. 如果需要编译的话，会产生大量的冗余代码。
 2. 标准一直在改变。[async/await 在chrome 环境和 node 环境的 执行结果不一致，求解？](https://www.zhihu.com/question/268007969/answer/339811998)
 
-## 4. 第三方异步库的推荐
+## 4. 结论
+1. Promise更适合做对于操作的封装。
+2. async/await更适合做对于业务的封装。
+
+## 5. 第三方异步库的推荐
     [RxJS](https://github.com/Reactive-Extensions/RxJS)
     [redux-saga](https://github.com/redux-saga/redux-saga)

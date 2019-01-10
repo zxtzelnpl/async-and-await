@@ -1,23 +1,21 @@
-// 先请求a
-// 用a的请求数据请求b
-// 用请求a和请求b的到的数据请求c
-import {get} from '../utils';
+// 先请求数据a和b。
+// 根据a的返回请求数据c。
+// 获得abc的数据渲染页面。
+import { get, CountTime} from '../utils';
 
-export default function demo42(){
-    get('a',1000)
-    .then(json=>{
-        let markA = json.letter;
-        let stringB = markA+'b';
-        return get(stringB,1000)
-        .then(json=>{
-            let markB = json.letter;
+export default async function demo42(){
+    console.log('demo4.2');
+    const countTime = CountTime();
+    countTime.begin();
+    let jsonA = get('a',1000);
+    let jsonB = get('b',1000);
+    let jsonC = jsonA.then(json=>{
+        let stringC = 'c' + json.letter + 'c';
+        return get(stringC, 1000);
+    });
 
-            let string = markA+markB;
-            return get(string,100)
-            .then(json=>{
-                console.log(json)
-            })
-        })
-    })
+    let [a,b,c] = await Promise.all([jsonA,jsonB,jsonC]);
+    console.log(a,b,c);
+    countTime.end();
 
 }

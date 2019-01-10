@@ -3,7 +3,7 @@ import {get,noFunction,errorThen,error404,error500,CountTime,chalk} from '../uti
 // 1. 在本链中抛出错误。 ---> 可以捕获到位置
 // 2. 在外链同步中抛出错误。---> 可以捕获到位置
 // 3. 在外链异步中抛出错误。---> 可以捕获到位置
-// 4. 抛出404或500错误。 ---> 无法捕获404和500错误
+// 4. 抛出404或500错误。 ---> 
 export default function demo22(){
     console.log('demo2-2');
     const countTime = CountTime();

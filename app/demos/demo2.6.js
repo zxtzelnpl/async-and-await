@@ -1,6 +1,6 @@
 import {get,CountTime,chalk,rejectP} from '../utils';
 
-// 可以精确的显示当前报错的函数
+// 可以显示当前报错的函数
 
 export default async function demo26(){
     console.log('demo2-6');
