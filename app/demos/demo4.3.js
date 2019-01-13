@@ -1,26 +1,27 @@
-// 先请求数据a和b。
-// 根据a的返回请求数据c。
-// 获得abc的数据渲染页面。
-import { get, CountTime} from '../utils';
+// 请求数据a，根据返回a的结果请求b。
+// 请求数据c，根据返回c的解说请求d。
 
-async function getAC(){
-    const responseA = await get('a', 1000);
+import { get, CountTime } from '../utils';
 
-    const string = 'c'+responseA.letter+'c';
-    const responseC = await get(string, 1000);
-    
-    return [responseA,responseC];
+async function getOne(){
+    const reponseA = await get('a', 1000);
+    const stringB = reponseA.letter + 'b';
+    const reponseB = await get(stringB, 1000);
+    return reponseB.letter;
 }
 
-export default async function demo43(){
+async function getTwo(){
+    const reponseC = await get('c', 1000);
+    const stringD = reponseC.letter + 'd';
+    const reponseD = await get(stringD, 1000);
+    return reponseD.letter;
+}
+
+export default async function demo43() {
     console.log('demo4-3');
 
-    const countTime = CountTime();
+    let countTime = CountTime();
     countTime.begin();
-    const jsonAC = getAC();
-    const jsonB = get('b',1000);
-
-    const [[a, c], b] = await Promise.all([jsonAC, jsonB]);
-    console.log(a,b,c);
-    countTime.end();
+    const reults = await Promise.all([getOne(),getTwo()]);
+    countTime.end(reults.join(','));
 }

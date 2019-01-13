@@ -1,6 +1,6 @@
 // 语法标准还不确定
 
-export default async function demo71() {
+export default function demo71() {
     console.log('demo7-1');
     async function async1() {
         console.log("async1 start");
@@ -10,6 +10,11 @@ export default async function demo71() {
     async function async2() {
         console.log('async2');
     }
+
+    setTimeout(()=>{
+        console.log('setTimeout');
+    })
+
     async1();
     new Promise(function (resolve) {
         console.log("promise1");

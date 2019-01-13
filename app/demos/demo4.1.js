@@ -1,22 +1,30 @@
-// 先请求数据a和b。
-// 根据a的返回请求数据c。
-// 获得abc的数据渲染页面。
-import { get, CountTime} from '../utils';
+// 请求数据a，根据返回a的结果请求b。
+// 请求数据c，根据返回c的解说请求d。
 
-export default function demo41(){
-    console.log('demo4.1');
-    const countTime = CountTime();
+import { get, CountTime } from '../utils';
+
+export default function demo41() {
+    console.log('demo4-1');
+    let countTime = CountTime();
     countTime.begin();
-    let promiseA = get('a',1000);
-    let promiseB = get('b',1000);
-    let promiseC = promiseA.then(json=>{
-        let stringC = 'c' + json.letter + 'c';
-        return get(stringC,1000);
-    });
 
-    Promise.all([promiseA,promiseB,promiseC])
-    .then(([a,b,c])=>{
-        console.log(a,b,c);
-        countTime.end();
-    });
+    get('a', 1000)
+        .then(json => {
+            let stringB = json.letter + 'b';
+            return get(stringB, 1000)
+        })
+        .then(res => res.json())
+        .then(json => {
+            countTime.end(json.letter);
+        });
+
+    get('c', 1000)
+        .then(json => {
+            let stringD = json.letter + 'd';
+            return get(stringD, 1000)
+        })
+        .then(res => res.json())
+        .then(json => {
+            countTime.end(json.letter);
+        });
 }

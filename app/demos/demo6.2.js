@@ -1,20 +1,17 @@
-// 请求数据a，根据返回a的结果请求b。
-// 请求数据c，根据返回c的解说请求d。
+// 请求a和b
+// 如果a先返回则显示a。
+// 如果b先返回则等待，a返回后显示a,再显示b。
 
-import { get, CountTime } from '../utils';
+import {get,CountTime} from '../utils';
 
-export default async function demo62() {
+export default async function demo62(){
     console.log('demo6-2');
     let countTime = CountTime();
     countTime.begin();
-
-    const reponseA = await get('a',1000);
-    const stringB = reponseA.letter + 'b';
-    const reponseB = await get(stringB,1000);
-    countTime.end(reponseB.letter);
-
-    const reponseC = await get('c', 1000);
-    const stringD = reponseC.letter + 'd';
-    const reponseD = await get(stringD, 1000);
-    countTime.end(reponseD.letter);
+    const responseA =get('a',2000);
+    const responseB =get('b',1000);
+    const jsonA = await responseA;
+    countTime.end(jsonA.letter);
+    const jsonB = await responseB;
+    countTime.end(jsonB.letter);
 }

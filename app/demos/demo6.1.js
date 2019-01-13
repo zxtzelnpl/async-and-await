@@ -1,30 +1,49 @@
-// 请求数据a，根据返回a的结果请求b。
-// 请求数据c，根据返回c的解说请求d。
+// 请求a和b
+// 如果a先返回则显示a。
+// 如果b先返回则等待，a返回后显示a,再显示b。
 
-import { get, CountTime } from '../utils';
+import {get,CountTime} from '../utils';
 
-export default function demo61() {
+export default function demo61(){
     console.log('demo6-1');
     let countTime = CountTime();
     countTime.begin();
 
-    get('a', 1000)
-        .then(json => {
-            let stringB = json.letter + 'b';
-            return get(stringB, 1000)
-        })
-        .then(res => res.json())
-        .then(json => {
-            countTime.end(json.letter);
-        });
+    const callbacks = {
+        index:0,
+        array:[],
+        fire:function(){
+            while(this.array[this.index]){
+                countTime.end(this.array[this.index]);
+                this.index++;
+            }
+        }
+    }
 
-    get('c', 1000)
-        .then(json => {
-            let stringD = json.letter + 'd';
-            return get(stringD, 1000)
-        })
-        .then(res => res.json())
-        .then(json => {
-            countTime.end(json.letter);
-        });
+    get('a',3000)
+    .then(res=>res.json())
+    .then(json=>{
+        callbacks.array[0] = json.letter;
+        countTime.end('received a')
+        callbacks.fire();
+    })
+    .catch(error=>{
+        callbacks.array[0] = 'requset a occur error';
+        countTime.end('error a');
+        callbacks.fire();
+    })
+    ;
+    get('b',2000)
+    .then(res=>res.json())
+    .then(json=>{
+        callbacks.array[1] = json.letter;
+        countTime.end('received b')
+        callbacks.fire();
+    })
+    .catch(error=>{
+        callbacks.array[1] = 'requset b occur error';
+        countTime.end('error b');
+        callbacks.fire();
+    })
+    ;
 }
