@@ -55,7 +55,8 @@ function component() {
 
     // Lodash, currently included via a script, is required for this line to work
     element.innerHTML = _.join([
-        `<button id="${demo.name}">demo</button>`,
+        '',
+        `<button id="${demo.name}">demo0-0</button>`,
         `<button id="${demo11.name}">demo1-1</button>`,
         `<button id="${demo12.name}">demo1-2</button>`,
         `<button id="${demo13.name}">demo1-3</button>`,
@@ -92,7 +93,7 @@ function component() {
         '<hr />',
         `<button id="${demo81.name}">demo8-1</button>`,
         `<button id="${demo82.name}">demo8-2</button>`,
-    ], '<br>');
+    ], '<span style="margin:0 10px"></span>');
 
     return element;
 }
