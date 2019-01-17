@@ -163,9 +163,9 @@ document.getElementById('app').addEventListener('click', function (e) {
         case demo52.name:
             demo52();
             break;
-        case demo53.name:
-            demo53();
-            break;
+        // case demo53.name:
+        //     demo53();
+        //     break;
         case demo61.name:
             demo61();
             break;
