@@ -17,7 +17,7 @@ export default function demo51(){
             .then(json=>{
                 let C = json.letter;
                 countTime.end(C);
-            })
-        })
+            });
+        });
     });
 }
