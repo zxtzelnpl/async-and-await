@@ -8,7 +8,7 @@ import {
 const _fetch = (function (get) {
     return function (url, time) {
         let abort = null;
-        const abort_promise = new Promise((resolve, reject) => {
+        const abort_promise = new Promise((_, reject) => {
             abort = () => {
                 reject('abort.');
                 chalk({

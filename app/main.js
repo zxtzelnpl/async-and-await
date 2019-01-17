@@ -26,7 +26,7 @@ import demo43 from './demos/demo4.3';
 
 import demo51 from './demos/demo5.1';
 import demo52 from './demos/demo5.2';
-import demo53 from './demos/demo5.3';
+// import demo53 from './demos/demo5.3';
 
 import demo61 from './demos/demo6.1';
 import demo62 from './demos/demo6.2';
@@ -80,7 +80,6 @@ function component() {
         '<hr />',
         `<button id="${demo51.name}">demo5-1</button>`,
         `<button id="${demo52.name}">demo5-2</button>`,
-        `<button id="${demo53.name}">demo5-3</button>`,
         '<hr />',
         `<button id="${demo61.name}">demo6-1</button>`,
         `<button id="${demo62.name}">demo6-2</button>`,

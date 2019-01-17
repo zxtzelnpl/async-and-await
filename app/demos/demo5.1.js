@@ -1,22 +1,23 @@
-// 先请求数据a和b。
-// 根据a的返回请求数据c。
-// 获得abc的数据渲染页面。
+// 先请求数据a。
+// 根据a的数据请求b。
+// 根据a，b请求c。
 import { get, CountTime} from '../utils';
 
 export default function demo51(){
     console.log('demo5.1');
     const countTime = CountTime();
     countTime.begin();
-    let promiseA = get('a',1000);
-    let promiseB = get('b',1000);
-    let promiseC = promiseA.then(json=>{
-        let stringC = 'c' + json.letter + 'c';
-        return get(stringC,1000);
-    });
-
-    Promise.all([promiseA,promiseB,promiseC])
-    .then(([a,b,c])=>{
-        console.log(a,b,c);
-        countTime.end();
+    get('a',1000)
+    .then(json=>{
+        let A = json.letter;
+        get(A+'b',1000)
+        .then(json=>{
+            let B = json.letter;
+            get(A+B+'c',1000)
+            .then(json=>{
+                let C = json.letter;
+                countTime.end(C);
+            })
+        })
     });
 }

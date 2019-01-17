@@ -1,6 +1,6 @@
-// 先请求数据a和b。
-// 根据a的返回请求数据c。
-// 获得abc的数据渲染页面。
+// 先请求数据a。
+// 根据a的数据请求b。
+// 根据a，b请求c。
 import { get, CountTime} from '../utils';
 
 async function getAC(){
