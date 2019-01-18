@@ -2,6 +2,8 @@
 // 如果a先返回则显示a。
 // 如果b先返回则等待，a返回后显示a,再显示b。
 // 错误捕获
+// How to write async await without try-catch blocks in Javascript
+// https://blog.grossman.io/how-to-write-async-await-without-try-catch-blocks-in-javascript/
 
 import {get,errorThen,CountTime,chalk} from '../utils';
 
